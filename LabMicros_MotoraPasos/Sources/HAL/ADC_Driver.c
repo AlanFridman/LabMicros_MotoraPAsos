@@ -6,12 +6,19 @@
  */
 
 
-void ADC_Init(pin)
+
+u8 ADC_Read(void)
 {
-    ADC_PIN(pin);   /*pin must be 3 bits*/
+    while (!ADCSC_COCO) {
+    }
+    return ADCRL;
 }
 
-void ADC_StartConversion(void)
+
+void ADC_Init(void)
 {
-    APCTL_ADPC0=1;  /*Enables the control of ADC pin 0+/
+    ADCCFG=0b01000000; /* Configures the ADC clock to 1M Hz, 8 bits, bus clck */
+    ADCSC2= 0;
+    ADCSC1 = 0b01100000 | ADC_CHANNEL; /* pin 0 por defaul */
+    APCTL1 = 1 << ADC_CHANNEL;  /*Enables the control of ADC pin 0*/
 }
