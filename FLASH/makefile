@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 3
+#Progress monitor hint: 7
 first : all
 -include ../makefile.init
 
@@ -15,6 +15,8 @@ RM := "$(GNU_Make_Install_DirEnv)/rm" -f
 -include sources.mk
 -include subdir.mk
 -include Sources/subdir.mk
+-include Sources/HIL/subdir.mk
+-include Sources/HAL/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
 -include Project_Settings/Linker_Files/subdir.mk
 -include Lib/subdir.mk
@@ -91,14 +93,14 @@ endif
 # Tool invocations
 LabMicros_MotoraPasos.abs: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/Project.prm
 	@echo 'Building target: $@'
-	@echo 'Executing target #4 $@'
+	@echo 'Executing target #8 $@'
 	@echo 'Invoking: S08 Linker'
 	"$(HC08ToolsEnv)/linker" -ArgFile"LabMicros_MotoraPasos.args" -O"LabMicros_MotoraPasos.abs"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 LabMicros_MotoraPasos.abs.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #5 $@'
+	@echo 'Executing target #9 $@'
 	@echo 'Invoking: S08 Burner'
 	"$(HC08ToolsEnv)/burner" -ArgFile"LabMicros_MotoraPasos.abs.args" -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'
@@ -106,7 +108,7 @@ LabMicros_MotoraPasos.abs.s19: $(BBL_SRCS) $(EXECUTABLES)
 
 # Other Targets
 clean:
-	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(BURNER_OUTPUT_OUTPUTS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.abs
+	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(BURNER_OUTPUT_OUTPUTS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.abs $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.abs.args $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.abs.s19 $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.args $(ProjDirPath)/FLASH/LabMicros_MotoraPasos.map
 	-@echo ' '
 
 .PHONY: all clean dependents explicit-dependencies warning-messages
