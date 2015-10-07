@@ -13,11 +13,15 @@
 /*************************************************************************************************/
 /*********************						Includes						**********************/
 /*************************************************************************************************/
-
+#include "types.h"
+#include <hidef.h> /* for EnableInterrupts macro */
+#include "derivative.h" /* include peripheral declarations */
+#include "HAL\ADC_Driver.h"
 /*************************************************************************************************/
 /*********************						Defines							**********************/
 /*************************************************************************************************/
-#define ADC_SETUP 0b01100000
+#define REGISTER_SET_ZERO 0
+
 /*************************************************************************************************/
 /*********************						Typedefs						**********************/
 /*************************************************************************************************/
@@ -27,18 +31,23 @@
 /*************************************************************************************************/
 u8 ADC_Read(void)
 {
-    while (!ADCSC_COCO) {
+	static u8 valueADC;
+
+    ADCSC1= REGISTER_SET_ZERO | ADC_CHANNEL; /* pin 0 por default */
+
+    while (ADCSC1_COCO==0) 
+    {
     }
-    return ADCRL;
+    valueADC = ADCRL;
+    return valueADC;
 }
 
 
 void ADC_Init(void)
 {
-    ADCCFG=ADC_SETUP; /* Configures the ADC clock to 1M Hz, 8 bits, bus clck */
-    ADCSC2= 0;
-    ADCSC1 = 0b01100000 | ADC_CHANNEL; /* pin 0 por defaul */
-    APCTL1 = 1 << ADC_CHANNEL;  /*Enables the control of ADC pin 0*/
+    ADCCFG=	REGISTER_SET_ZERO; /* Configures the ADC clock to 1M Hz, 8 bits, bus clck */
+    ADCSC2= REGISTER_SET_ZERO;
+    APCTL1= 1 << ADC_CHANNEL;  /*Enables the control of ADC pin 0*/
 }
 /*************************************************************************************************/
 /*********************                  Static Variables                    **********************/

@@ -1,6 +1,6 @@
 
 Project_Settings/Startup_Code/start08_c.obj: \
-	C:/Users/Alan/Documents/GitHub/LabMicros_MotoraPAsos/LabMicros_MotoraPasos/Project_Headers/../Project_Settings/Startup_Code/start08.c \
+	C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers/../Project_Settings/Startup_Code/start08.c \
 	C:/Freescale/CW\ MCU\ v10.6.4/MCU/lib/hc08c/include/start08.h \
 	C:/Freescale/CW\ MCU\ v10.6.4/MCU/lib/hc08c/include/hidef.h \
 	C:/Freescale/CW\ MCU\ v10.6.4/MCU/lib/hc08c/include/stddef.h \

@@ -1,0 +1,18 @@
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:36:error:C1005 Illegal storage class
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:37:error:C1005 Illegal storage class
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:37:error:C2450 Expected: ,
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:37:error:C1005 Illegal storage class
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:38:error:C1005 Illegal storage class
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:38:error:C2450 Expected: ,
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:38:error:C1005 Illegal storage class
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:55:error:C2801 ';' missing
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:56:error:C1409 Illegal combination of parameterlist and identlist
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:56:error:C1815 Valor_voltaje not declared (or typename)
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:56:warning:C1801 Implicit parameter-declaration for 'ADC_Read'
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:57:error:C1815 calculo_tiempo_us not declared (or typename)
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:57:error:C1815 u32 not declared (or typename)
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:57:error:C1844 Call-operator applied to non-function
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:57:error:C1822 Type mismatch (expected 'int ', given 'error ')
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:57:error:C1806 Illegal cast-operation
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:59:error:C2801 ';' missing
+C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers\../Sources/HIL\Speed_Manager.c:59:error:C2801 ';' missing
