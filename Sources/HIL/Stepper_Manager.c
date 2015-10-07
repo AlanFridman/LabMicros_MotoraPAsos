@@ -30,6 +30,7 @@
 #define TYPE_PORT B
 
 #define NumofSteps 8
+#define LastArrayPosition 7
 /*************************************************************************************************/
 /*********************						Typedefs						**********************/
 /*************************************************************************************************/
@@ -74,7 +75,7 @@ void forward(void)
 	//     Array positions:          0     1     2     3 	 4	  5		6	   7
 	//static char StepValues[8] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80, 0x90}; 
 		i++;
-		if (i > NumofSteps)	// Loop to rotate to the right
+		if (i >= NumofSteps)	// Loop to rotate to the right
 		{
 		    i=0;
 		}
@@ -89,7 +90,7 @@ void reverse(void)
 		i--;
 		if(i<0)
 		{
-		   i=NumofSteps;
+		   i=LastArrayPosition;
 		}
 			// Increment to avoid double timing on index 0 (for "rebound" mode) and to neutralise the post-decrement (for "ring" mode)
 		{

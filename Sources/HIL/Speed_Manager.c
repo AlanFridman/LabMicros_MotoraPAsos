@@ -55,7 +55,7 @@ void Motor_Speed(void)
 {
 	ADC_Init();
 	Valor_voltaje = Analog_Read();
-	calculo_tiempo_us =((unsigned short)(Valor_voltaje))*27+500;
+	calculo_tiempo_us =((unsigned short)(Valor_voltaje))*48+50;
 	tiempo_us = (calculo_tiempo_us)/10;
 	delay_us_MTIM(tiempo_us);
 }

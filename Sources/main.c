@@ -24,14 +24,12 @@ void main(void)
 {
 	
 #ifndef ARRAY_IMPLEMENTATION
-v 	EnableInterrupts;	
+ 	EnableInterrupts;	
 	Set_Pins_Out();
 	Pullup_Init();
 	Switch_Init();
 	for(;;)  // Loop forever
-	{
-		__RESET_WATCHDOG();	/* feeds the dog */
-		
+	{		
 		if(Switch_IsPressed()==1)
 		{
 			forward();
