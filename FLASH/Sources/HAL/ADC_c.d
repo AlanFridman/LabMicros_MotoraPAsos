@@ -1,5 +1,4 @@
 
-
 Sources/HAL/ADC_c.obj: \
 	C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers/../Sources/HAL/ADC.c \
 	C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers/types.h \

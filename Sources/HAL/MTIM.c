@@ -43,6 +43,7 @@
 /*************************************************************************************************/
 /*********************                  Static Constants                    **********************/
 /*************************************************************************************************/
+static unsigned long cuentatiempolocal;
 
 /*************************************************************************************************/
 /*********************                  Global Constants                    **********************/
@@ -52,14 +53,13 @@
 /*********************				   Exported Functions					**********************/
 /*************************************************************************************************/
 
-void delay_us_MTIM(u16 tiempo_us)
+void delay_us_MTIM(unsigned short tiempo_us)
 {
-	u16 cuentatiempolocal;
 	cuentatiempolocal=tiempo_us; 
 
-	MTIMCLK=0b00000010;   /*Set the prescaler for divide the bus clock 4 times and that make the count to 1us*/ 
+	MTIMCLK=0x02;   /*Set the prescaler for divide the bus clock 4 times and that make the count to 1us*/ 
 	MTIMSC_TSTP=0;   /*Start the count*/
-	MTIMMOD=2;   	 /**/
+	MTIMMOD=1;   	 /**/
 	
 	do
 	{

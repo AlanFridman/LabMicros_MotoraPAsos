@@ -38,7 +38,7 @@
 #define GPIO_PIN_DD(port, pin)     				PT##port##DD_PT##port##DD##pin  /* Defines the port-pin direction register name */
 #define GPIO_PIN(port, pin)        				PT##port##D_PT##port##D##pin    /* Defines the port-pin register name */
 #define GPIO_DIR(port)							PT##port##DD					/* Defines the port direction register */
-#define GPIO_PULLUP(port, pin)					PT##port##PE_PT##port##D##pin	/* Enable the Pull up resistor*/
+#define GPIO_PULLUP(port, pin)					PT##port##PE_PT##port##PE##pin	/* Enable the Pull up resistor*/
 /*************************************************************************************************/
 
 /* Macros to configure pin directin */

@@ -29,26 +29,7 @@
 /*************************************************************************************************/
 /*********************					Function Prototypes					**********************/
 /*************************************************************************************************/
-u8 ADC_Read(void)
-{
-	static u8 valueADC;
 
-    ADCSC1= REGISTER_SET_ZERO | ADC_CHANNEL; /* pin 0 por default */
-
-    while (ADCSC1_COCO==0) 
-    {
-    }
-    valueADC = ADCRL;
-    return valueADC;
-}
-
-
-void ADC_Init(void)
-{
-    ADCCFG=	REGISTER_SET_ZERO; /* Configures the ADC clock to 1M Hz, 8 bits, bus clck */
-    ADCSC2= REGISTER_SET_ZERO;
-    APCTL1= 1 << ADC_CHANNEL;  /*Enables the control of ADC pin 0*/
-}
 /*************************************************************************************************/
 /*********************                  Static Variables                    **********************/
 /*************************************************************************************************/
@@ -68,7 +49,25 @@ void ADC_Init(void)
 /*************************************************************************************************/
 /*********************				   Exported Functions					**********************/
 /*************************************************************************************************/
+char Analog_Read(void)
+{
 
+    ADCSC1= 0b00000110; /* pin 0 por default */
+
+    while (ADCSC1_COCO==0) 
+    {
+		__RESET_WATCHDOG();	/* feeds the dog */
+    }
+    return (char)ADCRL;
+}
+
+
+void ADC_Init(void)
+{
+    ADCCFG=	REGISTER_SET_ZERO; /* Configures the ADC clock to 1M Hz, 8 bits, bus clck */
+    ADCSC2= 0x80;
+    APCTL1= 1 << ADC_CHANNEL;  /*Enables the control of ADC pin 0*/
+}
 /*************************************************************************************************/
 /*********************				    Private Functions					**********************/
 /*************************************************************************************************/
