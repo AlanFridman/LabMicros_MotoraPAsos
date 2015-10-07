@@ -28,6 +28,8 @@
 #define PIN5 5
 #define PIN4 4
 #define TYPE_PORT B
+
+#define NumofSteps 8
 /*************************************************************************************************/
 /*********************						Typedefs						**********************/
 /*************************************************************************************************/
@@ -47,7 +49,7 @@
 /*************************************************************************************************/
 /*********************                  Static Constants                    **********************/
 /*************************************************************************************************/
-static char StepValues[8] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80}; 
+static char StepValues[8] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80, 0x90}; 
 static signed char i = 0;
 static char u8StringVal = MOTORPORT_STRING_INIT_CONDITION;
 
@@ -69,10 +71,10 @@ void Set_Pins_Out(void)
 void forward(void) 
 {
     // ARRAY_IMPLEMENTATION is defined
-	// Array positions:          0     1     2     3 	 4	  5		6	   7
-	// const u8 kaValues[8] = {0x01, 0x03, 0x02, 0x06, 0x04, 0x0C, 0x08, 0x0A};	
+	//     Array positions:          0     1     2     3 	 4	  5		6	   7
+	//static char StepValues[8] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80, 0x90}; 
 		i++;
-		if (i > 7)	// Loop to rotate to the right
+		if (i > NumofSteps)	// Loop to rotate to the right
 		{
 		    i=0;
 		}
@@ -87,7 +89,7 @@ void reverse(void)
 		i--;
 		if(i<0)
 		{
-		   i=7;
+		   i=NumofSteps;
 		}
 			// Increment to avoid double timing on index 0 (for "rebound" mode) and to neutralise the post-decrement (for "ring" mode)
 		{

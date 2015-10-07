@@ -24,7 +24,7 @@ void main(void)
 {
 	
 #ifndef ARRAY_IMPLEMENTATION
-	EnableInterrupts;	
+v 	EnableInterrupts;	
 	Set_Pins_Out();
 	Pullup_Init();
 	Switch_Init();

@@ -1,5 +1,4 @@
 
-
 Sources/HIL/Speed_Manager_c.obj: \
 	C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers/../Sources/HIL/Speed_Manager.c \
 	C:/Users/Yoku/Documents/GitHub/LabMicros_MotoraPAsos/Project_Headers/types.h \
