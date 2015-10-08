@@ -29,7 +29,7 @@ _startupData is allocated at 0xE084 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
   _Range   pZeroOut       0x100     18
-  _Copy    *toCopyDownBeg 0xE280
+  _Copy    *toCopyDownBeg 0xE1FC
 } _startupData;
 
 *********************************************************************************************
@@ -39,8 +39,8 @@ Section Name                    Size  Type     From       To       Segment
 .data                              8   R/W      0x100      0x107   RAM
 .init                            132     R     0xE000     0xE083   ROM
 .startData                        14     R     0xE084     0xE091   ROM
-.text                            494     R     0xE092     0xE27F   ROM
-.copy                             14     R     0xE280     0xE28D   ROM
+.text                            362     R     0xE092     0xE1FB   ROM
+.copy                             14     R     0xE1FC     0xE209   ROM
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg0
 .abs_section_1                     1   N/I        0x1        0x1   .absSeg1
 .abs_section_2                     1   N/I        0x2        0x2   .absSeg2
@@ -120,7 +120,7 @@ Section Name                    Size  Type     From       To       Segment
 .vectSeg74_vect                    2     R     0xFFFE     0xFFFF   .vectSeg74
 
 Summary of section sizes per section type:
-READ_ONLY (R):         290 (dec:      656)
+READ_ONLY (R):         20C (dec:      524)
 READ_WRITE (R/W):       52 (dec:       82)
 NO_INIT (N/I):          55 (dec:       85)
 
@@ -140,27 +140,27 @@ MODULE:                 -- main_c.obj --
 - VARIABLES:
 MODULE:                 -- Speed_Manager_c.obj --
 - PROCEDURES:
-     Motor_Speed                               E0B2      24      36       1   .text       
+     Motor_Speed                               E0B2      16      22       1   .text       
 - VARIABLES:
      Valor_voltaje                              108       1       1       1   .bss        
      calculo_tiempo_us                          109       2       2       1   .bss        
      tiempo_us                                  10B       2       2       1   .bss        
 MODULE:                 -- Stepper_Manager_c.obj --
 - PROCEDURES:
-     Set_Pins_Out                              E0D6       4       4       1   .text       
-     forward                                   E0DA      19      25       1   .text       
-     reverse                                   E0F3      18      24       1   .text       
+     Set_Pins_Out                              E0C8       4       4       1   .text       
+     forward                                   E0CC      19      25       1   .text       
+     reverse                                   E0E5      18      24       1   .text       
 - VARIABLES:
      StepValues                                 100       8       8       2   .data       
      i                                          10D       1       1       8   .bss        
 MODULE:                 -- ADC_c.obj --
 - PROCEDURES:
-     Analog_Read                               E10B       E      14       1   .text       
-     ADC_Init                                  E119       9       9       1   .text       
+     Analog_Read                               E0FD       E      14       1   .text       
+     ADC_Init                                  E10B       9       9       1   .text       
 - VARIABLES:
 MODULE:                 -- MTIM_c.obj --
 - PROCEDURES:
-     delay_us_MTIM                             E122      2F      47       1   .text       
+     delay_us_MTIM                             E114      2F      47       1   .text       
 - VARIABLES:
      cuentatiempolocal                          10E       4       4       3   .bss        
 MODULE:                 -- start08_c.obj --
@@ -251,15 +251,13 @@ MODULE:                 -- mc9s08qg8_c.obj --
      _DBGF                                     1814       2       2       0   .abs_section_1814
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              E151      20      32       1   .text       
-     _ENTER_UNARY_L                            E171      29      41       1   .text       
-     _ENTER_BINARY_L_RC                        E19A      19      25       1   .text       
-     _IDIVMOD                                  E1B3      69     105       1   .text       
-     _LCMP_k_rel_j                             E21C      1F      31       1   .text       
-     _IDIVU_STAR08                             E23B       D      13       1   .text       
-     _LDEC                                     E248      1C      28       1   .text       
-     _LCMP_RC                                  E264       6       6       1   .text       
-     _STORE32                                  E26A      16      22       1   .text       
+     _PUSH_ARGS_L                              E143      20      32       1   .text       
+     _ENTER_UNARY_L                            E163      29      41       1   .text       
+     _ENTER_BINARY_L_RC                        E18C      19      25       1   .text       
+     _LCMP_k_rel_j                             E1A5      1F      31       1   .text       
+     _LDEC                                     E1C4      1C      28       1   .text       
+     _LCMP_RC                                  E1E0       6       6       1   .text       
+     _STORE32                                  E1E6      16      22       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -267,13 +265,13 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   main_c.obj                                   0     32      0
-  Speed_Manager_c.obj                          5     36      0
+  Speed_Manager_c.obj                          5     22      0
   Stepper_Manager_c.obj                        9     53      0
   ADC_c.obj                                    0     23      0
   MTIM_c.obj                                   4     47      0
   start08_c.obj                                0    132      0
   mc9s08qg8_c.obj                             85      0      0
-  rtshc08.o (ansiis.lib)                       0    303      0
+  rtshc08.o (ansiis.lib)                       0    185      0
   other                                       64     16     14
 
 *********************************************************************************************
@@ -281,8 +279,8 @@ SECTION USE IN OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 SECTION: ".text"
   main Motor_Speed Set_Pins_Out forward reverse Analog_Read ADC_Init 
-  delay_us_MTIM _PUSH_ARGS_L _ENTER_UNARY_L _ENTER_BINARY_L_RC _IDIVMOD 
-  _LCMP_k_rel_j _IDIVU_STAR08 _LDEC _LCMP_RC _STORE32 
+  delay_us_MTIM _PUSH_ARGS_L _ENTER_UNARY_L _ENTER_BINARY_L_RC _LCMP_k_rel_j 
+  _LDEC _LCMP_RC _STORE32 
 SECTION: ".data"
   StepValues 
 SECTION: ".bss"
@@ -526,22 +524,20 @@ OBJECT LIST SORTED BY ADDRESS
      Init                                      E00E      6D     109       1   .init       
      _Startup                                  E07B       9       9       0   .init       
      main                                      E092      20      32       1   .text       
-     Motor_Speed                               E0B2      24      36       1   .text       
-     Set_Pins_Out                              E0D6       4       4       1   .text       
-     forward                                   E0DA      19      25       1   .text       
-     reverse                                   E0F3      18      24       1   .text       
-     Analog_Read                               E10B       E      14       1   .text       
-     ADC_Init                                  E119       9       9       1   .text       
-     delay_us_MTIM                             E122      2F      47       1   .text       
-     _PUSH_ARGS_L                              E151      20      32       1   .text       
-     _ENTER_UNARY_L                            E171      29      41       1   .text       
-     _ENTER_BINARY_L_RC                        E19A      19      25       1   .text       
-     _IDIVMOD                                  E1B3      69     105       1   .text       
-     _LCMP_k_rel_j                             E21C      1F      31       1   .text       
-     _IDIVU_STAR08                             E23B       D      13       1   .text       
-     _LDEC                                     E248      1C      28       1   .text       
-     _LCMP_RC                                  E264       6       6       1   .text       
-     _STORE32                                  E26A      16      22       1   .text       
+     Motor_Speed                               E0B2      16      22       1   .text       
+     Set_Pins_Out                              E0C8       4       4       1   .text       
+     forward                                   E0CC      19      25       1   .text       
+     reverse                                   E0E5      18      24       1   .text       
+     Analog_Read                               E0FD       E      14       1   .text       
+     ADC_Init                                  E10B       9       9       1   .text       
+     delay_us_MTIM                             E114      2F      47       1   .text       
+     _PUSH_ARGS_L                              E143      20      32       1   .text       
+     _ENTER_UNARY_L                            E163      29      41       1   .text       
+     _ENTER_BINARY_L_RC                        E18C      19      25       1   .text       
+     _LCMP_k_rel_j                             E1A5      1F      31       1   .text       
+     _LDEC                                     E1C4      1C      28       1   .text       
+     _LCMP_RC                                  E1E0       6       6       1   .text       
+     _STORE32                                  E1E6      16      22       1   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -550,21 +546,22 @@ NOT USED PROCEDURES
 rtshc08.o (ansiis.lib):
   _PUSH_ARGS_D _ENTER_UNARY_L64 _ENTER_UNARY_L64_4 _ENTER_BINARY_L 
   _ENTER_BINARY_L_LC _ENTER_BINARY_L64 _ENTER_BINARY_L64_LC 
-  _ENTER_BINARY_L64_RC _SPLITSIGN _LADD_k_is_k_plus_j _k_is_k_plus_j_l 
+  _ENTER_BINARY_L64_RC _IDIVMOD _SPLITSIGN _LADD_k_is_k_plus_j _k_is_k_plus_j_l 
   _k_is_k_plus_j_i _LSUB_k_is_k_minus_j _LAND_k_is_k_and_j _LOR_k_is_k_or_j 
   _LXOR_k_is_k_xor_j _LMUL_k_is_k_mul_j _LDIVMOD _NEG_L_HX _ABS_L_HX 
   _SPLITSIGN_L _LMODU_k_is_k_mod_j _LDIVU_k_is_k_div_j _LMODS_k_is_k_mod_j 
   _LDIVS_k_is_k_div_j _CMP24_k_rel_j _BMULS _BDIVS _BMODS _IMUL_STAR08 
-  _IDIVS_STAR08 _IMODS_STAR08 _IMODU_STAR08 _IDIVU_8 _IMODU_8 _IASR _ILSR _ILSL 
-  _ICMP _LINC _LNEG _LNOT _LADD _LADD_RC _LSUB _LSUB_LC _LSUB_RC _LAND _LAND_RC 
-  _LOR _LOR_RC _LXOR _LXOR_RC _LMUL _LMUL_RC _LDIVS _LDIVS_LC _LDIVS_RC _LDIVU 
-  _LDIVU_LC _LDIVU_RC _LMODS _LMODS_LC _LMODS_RC _LMODU _LMODU_LC _LMODU_RC 
-  _LASR _LLSR _LLSL _LCMP _PUSH_ARGS_24 _ENTER_BINARY_24_RC _ENTER_BINARY_24 
-  _CMP24 _CMP24_RC _COPY _COPY_L _POP32 _POP64 _STORE64 _SEXT8_32 _SEXT16_32 
-  _CALL_STAR08 _CALL_STAR08_FAR _Jump_Table_Addr _Jump_Table_Offset 
-  _Jump_Table_Header_Addr _Jump_Table_Header_Offset _Search_Table_16_Addr 
-  _Search_Table_16_Offset _Search_Table_8_Addr _Search_Table_8_Offset _PUSH_CC 
-  _POP_CC _CONV_FAR_TO_NEAR _CONV_FAR_TO_LINEAR _CONV_LINEAR_TO_FAR 
+  _IDIVS_STAR08 _IDIVU_STAR08 _IMODS_STAR08 _IMODU_STAR08 _IDIVU_8 _IMODU_8 
+  _IASR _ILSR _ILSL _ICMP _LINC _LNEG _LNOT _LADD _LADD_RC _LSUB _LSUB_LC 
+  _LSUB_RC _LAND _LAND_RC _LOR _LOR_RC _LXOR _LXOR_RC _LMUL _LMUL_RC _LDIVS 
+  _LDIVS_LC _LDIVS_RC _LDIVU _LDIVU_LC _LDIVU_RC _LMODS _LMODS_LC _LMODS_RC 
+  _LMODU _LMODU_LC _LMODU_RC _LASR _LLSR _LLSL _LCMP _PUSH_ARGS_24 
+  _ENTER_BINARY_24_RC _ENTER_BINARY_24 _CMP24 _CMP24_RC _COPY _COPY_L _POP32 
+  _POP64 _STORE64 _SEXT8_32 _SEXT16_32 _CALL_STAR08 _CALL_STAR08_FAR 
+  _Jump_Table_Addr _Jump_Table_Offset _Jump_Table_Header_Addr 
+  _Jump_Table_Header_Offset _Search_Table_16_Addr _Search_Table_16_Offset 
+  _Search_Table_8_Addr _Search_Table_8_Offset _PUSH_CC _POP_CC 
+  _CONV_FAR_TO_NEAR _CONV_FAR_TO_LINEAR _CONV_LINEAR_TO_FAR 
 NOT USED VARIABLES
 Stepper_Manager_c.obj:
   u8StringVal 
@@ -574,13 +571,13 @@ rtshc08.o (ansiis.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xE280 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xE1FC ---- SIZE       4 ---
 Filling bytes inserted
  00080100
-------- ROM-ADDRESS: 0xE284 ---- RAM-ADDRESS: 0x100 ---- SIZE       8 ---
+------- ROM-ADDRESS: 0xE200 ---- RAM-ADDRESS: 0x100 ---- SIZE       8 ---
 Name of initialized Object : StepValues
  1030206040 C08090
-------- ROM-ADDRESS: 0xE28C ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xE208 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -592,7 +589,7 @@ _Startup                  USES __SEG_END_SSTACK Init main
 main                      USES Set_Pins_Out _PTAPE _PTADD _PTAD forward 
                                 reverse Motor_Speed _SRS 
 Motor_Speed               USES ADC_Init Analog_Read Valor_voltaje 
-                                calculo_tiempo_us _IDIVU_STAR08 tiempo_us delay_us_MTIM 
+                                calculo_tiempo_us tiempo_us delay_us_MTIM 
 Set_Pins_Out              USES _PTBDD 
 forward                   USES i StepValues _PTBD 
 reverse                   USES i StepValues _PTBD 
@@ -601,7 +598,6 @@ ADC_Init                  USES _ADCCFG _ADCSC2 _APCTL1
 delay_us_MTIM             USES cuentatiempolocal _MTIMCLK _MTIMSC _MTIMMOD 
                                 _SRS _LDEC _STORE32 _LCMP_RC 
 _ENTER_BINARY_L_RC        USES _PUSH_ARGS_L 
-_IDIVU_STAR08             USES _IDIVMOD 
 _LDEC                     USES _ENTER_UNARY_L 
 _LCMP_RC                  USES _ENTER_BINARY_L_RC _LCMP_k_rel_j 
 
@@ -624,10 +620,6 @@ DEPENDENCY TREE
  |     |    
  |     +- Analog_Read         
  |     |    
- |     +- _IDIVU_STAR08       
- |     |  | 
- |     |  +- _IDIVMOD            
- |     |       
  |     +- delay_us_MTIM       
  |        | 
  |        +- _LDEC               
@@ -659,5 +651,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 4
-Total size of all blocks to be downloaded: 656
+Total size of all blocks to be downloaded: 524
 

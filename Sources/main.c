@@ -9,15 +9,13 @@
 *
 **************************************************************************************************/
 
-#include <hidef.h> /* for EnableInterrupts macro */
-#include "derivative.h" /* include peripheral declarations */
-#include "types.h"
-#include "HIL\MOTORPORT_String.h"
-#include "HIL\Stepper_Manager.h"
-#include "HIL\Speed_Manager.h"
-#include "HIL\Direction_Manager.h"
-
-#define INIT_VAL 0x80
+#include <hidef.h> 					/* for EnableInterrupts macro */
+#include "derivative.h" 			/* include peripheral declarations */
+#include "types.h" 					/*Include data types */
+#include "HIL\MOTORPORT_String.h"7	/**/
+#include "HIL\Stepper_Manager.h"	/**/
+#include "HIL\Speed_Manager.h"		/**/
+#include "HIL\Direction_Manager.h"	/**/
 
 
 void main(void) 
