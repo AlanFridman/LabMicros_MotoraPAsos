@@ -63,7 +63,7 @@
 /*********************					Function Prototypes					**********************/
 /*************************************************************************************************/
 /*!*-----------------------------------------------------------------------------------------------
-* \name     MOTORPORT_Init
+* \name     MOTORPORT_String_SetValue
 * \brief    Initalizes the GPIO pins used for the STEPS String and it sets it to the initial condition
 *           which is the LSb of the array ON.
 * \param    void
@@ -72,8 +72,8 @@
 void MOTORPORT_String_SetValue(char u8Value);
 
 /*!*-----------------------------------------------------------------------------------------------
-* \name     Digital_WritePin
-* \brief    Returns the last value written to the STEP string
+* \name     MOTORPORT_String_GetValue
+* \brief    Read de actual value to make masks 
 * \param    void
 * \return   u8 value contain the value of the STEP string. The bit that don't correspond to the string are returned as zero
 -------------------------------------------------------------------------------------------------*/

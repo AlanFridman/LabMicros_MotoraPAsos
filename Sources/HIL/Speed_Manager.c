@@ -53,11 +53,11 @@ static unsigned short tiempo_us;
 /*************************************************************************************************/
 void Motor_Speed(void)
 {
-	ADC_Init();
-	Valor_voltaje = Analog_Read();
-	calculo_tiempo_us =((unsigned short)(Valor_voltaje)*156)+4000;
-	tiempo_us = (calculo_tiempo_us)/100;
-	delay_us_MTIM(tiempo_us);
+	ADC_Init();  /*Initializes the ADC module*/
+	Valor_voltaje = Analog_Read(); /*Read the convertion of the ADC*/
+	calculo_tiempo_us =((unsigned short)(Valor_voltaje)*156)+4000; /*Use the aproximation ecuation*/
+	tiempo_us = (calculo_tiempo_us)/100;/*Put the result in a u16*/
+	delay_us_MTIM(tiempo_us);/*set the delay */
 }
 /************************************************************************************************/
 /*********************				    Private Functions					**********************/

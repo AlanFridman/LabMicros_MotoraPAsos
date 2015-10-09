@@ -23,12 +23,13 @@
 /*************************************************************************************************/
 #define INIT_VAL 0x80
 
-#define PIN7 7
+#define PIN7 7					/*Set the pins to use*/
 #define PIN6 6
 #define PIN5 5
 #define PIN4 4
-#define TYPE_PORT B
+#define TYPE_PORT B 			/*Set the port that you want to use*/
 
+#define FirstStep 0
 #define NumofSteps 8
 #define LastArrayPosition 7
 /*************************************************************************************************/
@@ -50,8 +51,8 @@
 /*************************************************************************************************/
 /*********************                  Static Constants                    **********************/
 /*************************************************************************************************/
-static char StepValues[8] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80, 0x90}; 
-static signed char i = 0;
+static char StepValues[NumofSteps] = {0x10, 0x30, 0x20, 0x60, 0x40, 0xC0, 0x80, 0x90}; 
+static signed char i = FirstStep;
 static char u8StringVal = MOTORPORT_STRING_INIT_CONDITION;
 
 /*************************************************************************************************/
@@ -65,7 +66,7 @@ void Set_Pins_Out(void)
 {
  
 	
-	GPIO_CONFIG_PORT_OUT(TYPE_PORT, 4, 4);
+	GPIO_CONFIG_PORT_OUT(TYPE_PORT, 4, 4); 7/*Set the four pins as output*/
 	
 }
 

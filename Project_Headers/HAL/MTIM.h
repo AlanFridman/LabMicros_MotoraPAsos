@@ -3,7 +3,7 @@
 *
 *
 * @file:      MTIM.h
-* @author(s):  
+* @author(s):  Hector Manuel milan
 *
 * @brief (User's Manual)
 *

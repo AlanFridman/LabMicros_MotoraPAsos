@@ -2,7 +2,8 @@
  * DirectionManager.h
  *
  *  Created on: Sep 29, 2015
- *      Author: Alan
+ *      Author: Alan Fridman
+ *				Yoku Sashida Mendez
  */
 
  /*! **********************************************************************************************

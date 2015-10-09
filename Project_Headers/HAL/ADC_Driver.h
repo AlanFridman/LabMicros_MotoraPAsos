@@ -2,7 +2,7 @@
  * 2014  ITESM Campus Guadalajara. Laboratorio de Microcontroladores
  *
  * @file:      ADC_Driver.h
- * @author(s): 	Mauricio Capistrán Garza Jirash	   
+ * @author(s): 	Alan Fridman   
  *
  * @brief (User's Manual):
  *    This is a simple GPIO driver for the 9S08QG8 MCU. It provides only macro-like functions to
@@ -51,10 +51,19 @@
 /*************************************************************************************************/
 /*********************					Function Prototypes					**********************/
 /*************************************************************************************************/
-
-
+/* \name    Analog_Read
+* \brief    Send the last convertion in u8 
+* \param    void
+* \return   char
+-------------------------------------------------------------------------------------------------*/
 char Analog_Read(void);
 
+/* \name    ADC_Init
+* \brief    Initialize the ADC to read not in continuous mode and with no interrupts. Use the Bus 
+*			clock and have a resolution of 8 bits. 
+* \param    void
+* \return   void
+-------------------------------------------------------------------------------------------------*/
 void ADC_Init(void);
 
 

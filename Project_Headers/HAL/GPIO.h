@@ -2,7 +2,8 @@
  * 2014  ITESM Campus Guadalajara. Laboratorio de Microcontroladores
  *
  * @file:      GPIO.h
- * @author(s): 	Mauricio Capistrán Garza Jirash	   
+ * @author(s): 	Mauricio Capistrán Garza Jirash	 
+ Editado por: 	Yoku Sashida Méndez  
  *
  * @brief (User's Manual):
  *    This is a simple GPIO driver for the 9S08QG8 MCU. It provides only macro-like functions to

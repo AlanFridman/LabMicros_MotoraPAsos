@@ -12,7 +12,7 @@
 #include <hidef.h> 					/* for EnableInterrupts macro */
 #include "derivative.h" 			/* include peripheral declarations */
 #include "types.h" 					/*Include data types */
-#include "HIL\MOTORPORT_String.h"7	/**/
+#include "HIL\MOTORPORT_String.h"	/**/
 #include "HIL\Stepper_Manager.h"	/**/
 #include "HIL\Speed_Manager.h"		/**/
 #include "HIL\Direction_Manager.h"	/**/
@@ -28,12 +28,12 @@ void main(void)
 	Switch_Init();
 	for(;;)  // Loop forever
 	{		
-		if(Switch_IsPressed()==1)
+		if(Switch_IsPressed()==1) /*Verify if the user want to move forwar or put reverse*/
 		{
 			forward();
-			Motor_Speed();
+			Motor_Speed(); 
 		}
-		else
+		else 					
 		{
 			reverse();
 			Motor_Speed();

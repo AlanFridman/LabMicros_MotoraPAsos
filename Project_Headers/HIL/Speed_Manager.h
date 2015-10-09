@@ -3,7 +3,8 @@
  * 2014  ITESM Campus Guadalajara. Laboratorio de Microcontroladores
  *
  * @file:      SpeedDelayManager.h
- * @author(s): 	Mauricio Capistrán Garza Jirash	   
+ * @author(s): 	Yoku Sashida Mendez / Alan Fridman
+
  *
  * @brief (User's Manual):
  *    This is a simple GPIO driver for the 9S08QG8 MCU. It provides only macro-like functions to
